@@ -5,7 +5,8 @@ const initState = {
         usd: 'USD',
         gbp: 'GBP'
     },
-    rates:{}
+    rates:{},
+    coefficient: 1.17
 }
 
 const exchangeReducer = (state = initState, action) => {
@@ -15,6 +16,12 @@ const exchangeReducer = (state = initState, action) => {
                 ...state,
                 rates: action.rates,
                 base: action.base
+            }
+
+        case 'GET_EXCHANGE_COEFFICIENT':
+            return {
+                ...state,
+                coefficient: action.coefficient
             }
         
         default:
